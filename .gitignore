@@ -1,0 +1,14 @@
+**/.vscode
+**/.idea/
+**/node_modules
+**/dist/
+**/build/
+**/src/_assets
+
+**/.DS_Store
+**/postcss.config.ts
+**/webpack.config.ts
+**/*.txt
+**/*.log
+**/*.json
+!**/package.json
