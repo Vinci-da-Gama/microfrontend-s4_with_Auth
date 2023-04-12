@@ -21,9 +21,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.5.1
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v2.5.3
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
@@ -31,7 +31,8 @@ jobs:
       - name: Build
         run: yarn build
 
-      - uses: shinyinc/action-aws-cli@v1.2
+      - name: shinyinc start aws-cli
+        uses: shinyinc/action-aws-cli@v2
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
