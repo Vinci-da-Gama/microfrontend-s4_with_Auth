@@ -13,10 +13,14 @@ const {
   marketingFedName,
   remoteEntry,
   publicIndex,
-  productionMode
+  productionMode,
+  containerAppPublicPath
 } = wpkConstants
 
 const prodConfig = {
+  output: {
+    publicPath: containerAppPublicPath
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: containerFedName,
