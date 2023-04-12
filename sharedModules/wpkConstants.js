@@ -8,7 +8,8 @@ const wpkConstants = Object.freeze({
   port8083: 8083,
   containerFedName: 'container',
   marketingFedName: 'marketing',
-  marketingExposesKey: './MarketingMiniApp'
+  marketingExposesKey: './MarketingMiniApp',
+  productionMode: 'production'
 });
 
 module.exports = wpkConstants;

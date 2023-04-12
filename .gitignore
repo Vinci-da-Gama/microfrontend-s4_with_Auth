@@ -4,7 +4,6 @@
 **/dist/
 **/build/
 **/src/_assets
-**/wpConfig
 
 **/.DS_Store
 **/postcss.config.ts

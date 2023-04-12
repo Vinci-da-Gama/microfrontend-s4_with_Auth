@@ -1,11 +1,4 @@
-const commWpConfig = (port, mode = 'development') => ({
-  mode,
-  devServer: {
-    port,
-    historyApiFallback: {
-      index: 'index.html'
-    }
-  },
+const basiWpkConfig = {
   module: {
     rules: [
       {
@@ -24,6 +17,23 @@ const commWpConfig = (port, mode = 'development') => ({
   resolve: {
     extensions: ['.jsx', '.js', '.mjs'],
   },
+}
+
+const commWpConfig = (port, mode = 'development') => !!port && mode === 'development' ? ({
+  ...basiWpkConfig,
+  mode,
+  devServer: {
+    port,
+    historyApiFallback: {
+      index: 'index.html'
+    }
+  }
+}) : ({
+  ...basiWpkConfig,
+  mode,
+  output: {
+    filename: '[name].[contenthash].js'
+  }
 })
 
 module.exports = commWpConfig

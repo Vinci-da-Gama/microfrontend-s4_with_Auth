@@ -1,14 +1,12 @@
 import React from 'react'
 
-import { mount } from 'marketing/MarketingMiniApp'
-
-console.log('5 -- just have a look mount func: ', mount)
+import MarketingMiniApp from './miniapp-compos/MarketingMiniApp'
 
 const App = () => {
   return (
-    <div>
-      hi container...
-    </div>
+    <>
+      <MarketingMiniApp />
+    </>
   )
 }
 
