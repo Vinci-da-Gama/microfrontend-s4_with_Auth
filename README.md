@@ -1,1 +1,1 @@
-[![deploy-container](https://github.com/Vinci-da-Gama/microfrontend-s4_with_auth/actions/workflows/container.yml/badge.svg?branch=main)](https://github.com/Vinci-da-Gama/microfrontend-s4_with_auth/actions/workflows/container.yml)
+
