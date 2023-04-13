@@ -1,12 +1,18 @@
 import React from 'react'
-import { StylesProvider } from '@material-ui/core/styles'
+import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles'
 
 import MarketRoutes from './routes'
 
-const App = () => (
-  <StylesProvider>
-    <MarketRoutes />
-  </StylesProvider>
-)
+const generateClassName = createGenerateClassName({
+  productionPrefix: 'marketing-mini-app'
+})
+
+const App = () => {
+  return (
+    <StylesProvider generateClassName={generateClassName}>
+      <MarketRoutes />
+    </StylesProvider>
+  )
+}
 
 export default App
