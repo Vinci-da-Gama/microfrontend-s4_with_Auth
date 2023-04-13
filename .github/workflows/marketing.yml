@@ -1,19 +1,15 @@
-name: deploy-container
-
-env:
-  S3_PATH: "container/latest"
-  AWS_REGION: "ap-southeast-2"
+name: deploy-marketing
 
 on:
   push:
     branches:
       - main
     paths:
-      - "container/**"
+      - "marketing/**"
 
 defaults:
   run:
-    working-directory: container
+    working-directory: marketing
 
 jobs:
   build:
@@ -38,15 +34,15 @@ jobs:
       - name: shinyinc start aws-cli
         uses: shinyinc/action-aws-cli@v1.2
       - name: Upload production to s3 bucket
-        run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/${{ env.S3_PATH }}
+        run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/marketing/latest
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
+          AWS_DEFAULT_REGION: ap-southeast-2
 
       - name: Sync clould front for invalidation (index.html)
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/${{ env.S3_PATH }}/index.html"
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/marketing/latest/remoteEntry.js"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
+          AWS_DEFAULT_REGION: ap-southeast-2
