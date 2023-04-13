@@ -5,11 +5,10 @@ import { StylesProvider, createGenerateClassName } from '@material-ui/core/style
 import MarketingMiniApp from './miniapp-compos/MarketingMiniApp'
 import Header from './compos/Header'
 
-const generateClassName = createGenerateClassName({
-  productionPrefix: 'container-app'
-})
-
 const App = () => {
+  const generateClassName = createGenerateClassName({
+    productionPrefix: 'container-app'
+  })
 
   return (
     <Router>

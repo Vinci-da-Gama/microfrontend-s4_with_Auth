@@ -3,11 +3,11 @@ import { StylesProvider, createGenerateClassName } from '@material-ui/core/style
 
 import MarketRoutes from './routes'
 
-const generateClassName = createGenerateClassName({
-  productionPrefix: 'marketing-mini-app'
-})
-
 const App = () => {
+  const generateClassName = createGenerateClassName({
+    productionPrefix: 'marketing-mini-app'
+  })
+
   return (
     <StylesProvider generateClassName={generateClassName}>
       <MarketRoutes />
