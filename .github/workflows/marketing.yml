@@ -2,7 +2,7 @@ name: deploy-marketing
 
 env:
   S3_MARKETING_PATH: "marketing/latest"
-  AWS_REGION: "ap-southeast-2"
+  AWS_REGION: ${{ env.AWS_REGION }}
 
 on:
   push:

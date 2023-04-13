@@ -2,7 +2,7 @@ name: deploy-container
 
 env:
   S3_CONTAINER_PATH: "container/latest"
-  AWS_REGION: "ap-southeast-2"
+  AWS_REGION: ${{ env.AWS_REGION }}
 
 on:
   push:
