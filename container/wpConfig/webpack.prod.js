@@ -4,7 +4,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 
 const commWpConfig = require('../../sharedModules/webpack.common')
 const wpkConstants = require('../../sharedModules/wpkConstants')
-const packageJson = require('../package.json');
+const packageJson = require('../package.json')
 
 const domain = process.env.PRODUCTION_DOMAIN
 
