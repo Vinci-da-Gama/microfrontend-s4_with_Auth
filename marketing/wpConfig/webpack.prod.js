@@ -6,6 +6,9 @@ const wpkConstants = require('../../sharedModules/wpkConstants')
 const packageJson = require('../package.json');
 
 const prodConfig = {
+  output: {
+    publicPath: `/${wpkConstants.marketingMiniAppPublicPath}/`
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: wpkConstants.marketingFedName,

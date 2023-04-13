@@ -10,7 +10,8 @@ const wpkConstants = Object.freeze({
   marketingFedName: 'marketing',
   marketingExposesKey: './MarketingMiniApp',
   productionMode: 'production',
-  containerAppPublicPath: '/container/latest/'
+  containerAppPublicPath: '/container/latest/',
+  marketingMiniAppPublicPath: 'marketing/latest'
 });
 
 module.exports = wpkConstants;

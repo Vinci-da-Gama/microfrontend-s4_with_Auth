@@ -14,7 +14,8 @@ const {
   remoteEntry,
   publicIndex,
   productionMode,
-  containerAppPublicPath
+  containerAppPublicPath,
+  marketingMiniAppPublicPath
 } = wpkConstants
 
 const prodConfig = {
@@ -25,7 +26,7 @@ const prodConfig = {
     new ModuleFederationPlugin({
       name: containerFedName,
       remotes: {
-        [marketingFedName]: `${marketingFedName}@${domain}/${marketingFedName}/${remoteEntry}`
+        [marketingFedName]: `${marketingFedName}@${domain}/${marketingMiniAppPublicPath}/${remoteEntry}`
       },
       shared: packageJson.dependencies
     }),
