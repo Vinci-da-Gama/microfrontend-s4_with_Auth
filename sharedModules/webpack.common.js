@@ -22,11 +22,10 @@ const basiWpkConfig = {
 const commWpConfig = (port, mode = 'development') => !!port && mode === 'development' ? ({
   ...basiWpkConfig,
   mode,
+  devtool: 'eval-source-map',
   devServer: {
     port,
-    historyApiFallback: {
-      index: 'index.html'
-    }
+    historyApiFallback: true
   }
 }) : ({
   ...basiWpkConfig,

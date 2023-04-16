@@ -1,9 +1,12 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as BsRouter } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles'
 
 import MarketingMiniApp from './miniapp-compos/MarketingMiniApp'
 import Header from './compos/Header'
+
+const history = createBrowserHistory();
 
 const App = () => {
   const generateClassName = createGenerateClassName({
@@ -11,12 +14,12 @@ const App = () => {
   })
 
   return (
-    <Router>
+    <BsRouter>
       <StylesProvider generateClassName={generateClassName}>
         <Header />
-        <MarketingMiniApp />
+        <MarketingMiniApp browserHistory={history} />
       </StylesProvider>
-    </Router>
+    </BsRouter>
   )
 }
 
