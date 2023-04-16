@@ -19,7 +19,7 @@ const basiWpkConfig = {
   },
 }
 
-const commWpConfig = (port, mode = 'development') => !!port && mode === 'development' ? ({
+const commWpConfig = (port, mode = 'development', publicPath='') => !!port && mode === 'development' ? ({
   ...basiWpkConfig,
   mode,
   devtool: 'eval-source-map',
@@ -31,7 +31,8 @@ const commWpConfig = (port, mode = 'development') => !!port && mode === 'develop
   ...basiWpkConfig,
   mode,
   output: {
-    filename: '[name].[contenthash].js'
+    filename: '[name].[contenthash].js',
+    publicPath
   }
 })
 

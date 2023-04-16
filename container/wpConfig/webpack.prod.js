@@ -19,9 +19,6 @@ const {
 } = wpkConstants
 
 const prodConfig = {
-  output: {
-    publicPath: containerAppPublicPath
-  },
   plugins: [
     new ModuleFederationPlugin({
       name: containerFedName,
@@ -36,4 +33,4 @@ const prodConfig = {
   ]
 }
 
-module.exports = merge(commWpConfig(null, productionMode), prodConfig)
+module.exports = merge(commWpConfig(null, productionMode, containerAppPublicPath), prodConfig)
