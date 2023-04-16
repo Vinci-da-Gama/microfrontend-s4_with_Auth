@@ -1,11 +1,7 @@
-/* import React, { useRef, useEffect } from 'react'
-import { useNavigate, useLocation } from "react-router-dom"; */
-import React, { useCallback, useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { mount } from 'marketing/MarketingMiniApp'
-
-// console.log('5 -- just have a look mount func: ', mount)
 
 const MarketingMiniApp = ({ browserHistory }) => {
   const mktMa = useRef(null)
@@ -20,6 +16,9 @@ const MarketingMiniApp = ({ browserHistory }) => {
       },
     });
   }, [location, navigate]); // may no need navigate
+
+  // createRoot(mktMa.current).render(<div />);
+  // Render the component using createRoot instead of ReactDOM.render()
 
   return <div ref={mktMa} />
 }

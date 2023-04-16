@@ -2,7 +2,6 @@ import React, { useState, useLayoutEffect } from 'react'
 import { Router } from 'react-router-dom'
 
 const CustomRouter = ({ history, ...props }) => {
-  console.log('5 -- marketing CustomRouter history: ', history)
   const [state, setState] = useState({
     action: history.action,
     location: history.location
