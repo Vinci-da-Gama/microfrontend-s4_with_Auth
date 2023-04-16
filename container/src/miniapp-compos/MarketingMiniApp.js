@@ -8,14 +8,18 @@ const MarketingMiniApp = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const mountMktMa = useCallback(() => {
     mount(mktMa.current, {
       location,
       onNavigate: ({ pathname }) => {
         navigate(pathname);
       },
     });
-  }, [location]);
+  }, [location, navigate]);
+
+  useEffect(() => {
+    mountMktMa();
+  }, [mountMktMa]);
 
   // createRoot(mktMa.current).render(<div />);
   // Render the component using createRoot instead of ReactDOM.render()

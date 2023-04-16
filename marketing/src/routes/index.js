@@ -1,7 +1,5 @@
 import React, { lazy, Suspense } from 'react'
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Router, Routes, Route } from 'react-router-dom'
-// todo: use Router not BrowserRouter
+import { Routes, Route } from 'react-router-dom'
 
 import ROUTE_PATHS from '../constants/routePaths'
 import CustomRouter from './CustomRouter'
@@ -19,12 +17,12 @@ import Pricing from '../components/Pricing'
 const MarketRoutes = ({ history, location }) => {
   console.log('20 -- marketing routes index.js react-router-dom: ', require('react-router-dom'))
 
-  return(
+  return (
     <CustomRouter history={history}>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route exact path={ROUTE_PATHS.landing} element={<Landing />} />
-          <Route path={ROUTE_PATHS.pricing} element={<Pricing />} />
+            <Route exact path={ROUTE_PATHS.landing} element={<Landing />} />
+            <Route exact path={ROUTE_PATHS.pricing} element={<Pricing />} />
         </Routes>
       </Suspense>
     </CustomRouter>
