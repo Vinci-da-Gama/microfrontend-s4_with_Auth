@@ -10,6 +10,7 @@ const mount = (el, { location, onNavigate, defaultHistory }) => {
   console.log('10 -- marketing bootstrap location', location)
   console.log('11 -- marketing bootstrap onNavigate', onNavigate)
   console.log('12 -- marketing bootstrap defaultHistory', defaultHistory)
+
   /* if (!el) {
     root = null;
     return;
@@ -29,8 +30,8 @@ const mount = (el, { location, onNavigate, defaultHistory }) => {
   /* Warning is: rning: You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it. */
   // Although it fixes the warning, but cause page no change back to home error, no fully successful.
   /* root = root ? root : ReactDOMClient.createRoot(el);
-  root.render(<App location={location || history.location} history={history} />); */
-  ReactDOMClient.createRoot(el).render(<App location={location || history.location} history={history} />)
+  root.render(<App history={history} />); */
+  ReactDOMClient.createRoot(el).render(<App history={history} />)
 }
 
 if (process.env.NODE_ENV === 'development') {

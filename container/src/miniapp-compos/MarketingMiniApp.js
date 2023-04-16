@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { mount } from 'marketing/MarketingMiniApp'
 
-const MarketingMiniApp = () => {
+const MarketingMiniApp = ({browserHistory}) => {
   const mktMa = useRef(null)
   const location = useLocation();
   const navigate = useNavigate();
@@ -13,7 +13,8 @@ const MarketingMiniApp = () => {
       location,
       onNavigate: ({ pathname }) => {
         navigate(pathname);
-      },
+        // browserHistory.push(pathname);
+      }
     });
   }, [location, navigate]);
 
