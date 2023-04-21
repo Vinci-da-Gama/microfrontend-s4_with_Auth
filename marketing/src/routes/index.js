@@ -16,7 +16,7 @@ import Pricing from '../components/Pricing'
 }).map(([path, element]) => ({ path, element })); */
 
 const MarketRoutes = ({ history }) => {
-  console.log('20 -- marketing routes index.js react-router-dom: ', require('react-router-dom'))
+  console.log('19 -- marketing routes index.js react-router-dom: ', require('react-router-dom'))
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
