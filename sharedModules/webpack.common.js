@@ -23,9 +23,15 @@ const commWpConfig = (port, mode = 'development', publicPath='') => !!port && mo
   ...basiWpkConfig,
   mode,
   devtool: 'eval-source-map',
+  output: {
+    publicPath: `http://localhost:${port}/`
+  },
   devServer: {
     port,
-    historyApiFallback: true
+    historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    }
   }
 }) : ({
   ...basiWpkConfig,

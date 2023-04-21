@@ -7,6 +7,7 @@ const wpkConstants = require('../../sharedModules/wpkConstants')
 const packageJson = require('../package.json')
 
 const {
+  port8080,
   containerFedName,
   marketingFedName,
   port8081,
@@ -30,4 +31,4 @@ const devConfig = {
   ]
 }
 
-module.exports = merge(commWpConfig(wpkConstants.port8080), devConfig)
+module.exports = merge(commWpConfig(port8080), devConfig)
