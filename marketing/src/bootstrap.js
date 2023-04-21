@@ -1,5 +1,6 @@
 import React from 'react';
 import * as ReactDOMClient from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import { createMemoryHistory, createBrowserHistory } from 'history'
 
 import App from './App'
@@ -31,7 +32,11 @@ const mount = (el, { location, onNavigate, defaultHistory }) => {
   // Although it fixes the warning, but cause page no change back to home error, no fully successful.
   /* root = root ? root : ReactDOMClient.createRoot(el);
   root.render(<App history={history} />); */
-  ReactDOMClient.createRoot(el).render(<App history={history} />)
+  // ReactDOMClient.createRoot(el).render(<App history={history} />)
+  ReactDOM.hydrate(
+    <App history={history} />,
+    el
+  );
 }
 
 if (process.env.NODE_ENV === 'development') {

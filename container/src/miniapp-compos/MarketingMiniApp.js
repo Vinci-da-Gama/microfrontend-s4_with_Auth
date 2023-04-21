@@ -20,11 +20,35 @@ const MarketingMiniApp = ({browserHistory}) => {
 
   useEffect(() => {
     mountMktMa();
+
+    return () => {
+      mount(mktMa.current, { location, onNavigate: () => null });
+    };
   }, [mountMktMa]);
+
+
+  /* const isFirstRunRef = useRef(true);
+  const unmountRef = useRef(() => {});
+  // Mount marketing MFE
+  useEffect(
+    () => {
+      if (!isFirstRunRef.current) {
+        return;
+      }
+      unmountRef.current = mount(mktMa.current, {
+        // mountPoint: mktMa.current,
+        location
+      });
+      isFirstRunRef.current = false;
+    },
+    [location],
+  );
+
+  useEffect(() => unmountRef.current, []); */
 
   // createRoot(mktMa.current).render(<div />);
   // Render the component using createRoot instead of ReactDOM.render()
-
+  // id="marketing-mfe"
   return <div ref={mktMa} />
 }
 
