@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+// import { createRoot } from 'react-dom/client';
 
 import { mount } from 'marketing/MarketingMiniApp'
 
@@ -24,6 +25,13 @@ const MarketingMiniApp = ({browserHistory}) => {
     return () => {
       mount(mktMa.current, { location, onNavigate: () => null });
     };
+    /* let root = createRoot(mktMa.current);
+
+    mountMktMa();
+
+    return () => {
+      root.unmount();
+    }; */
   }, [mountMktMa]);
 
 

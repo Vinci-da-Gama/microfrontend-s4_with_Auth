@@ -31,7 +31,9 @@ const mount = (el, { location, onNavigate, defaultHistory }) => {
   // Although it fixes the warning, but cause page no change back to home error, no fully successful.
   /* root = root ? root : ReactDOMClient.createRoot(el);
   root.render(<App history={history} />); */
-  ReactDOMClient.createRoot(el).render(<App history={history} />)
+  // ReactDOMClient.createRoot(el).render(<App history={history} />)
+  const root = createRoot(el);
+  root.render(<App history={history} />);
 }
 
 if (process.env.NODE_ENV === 'development') {

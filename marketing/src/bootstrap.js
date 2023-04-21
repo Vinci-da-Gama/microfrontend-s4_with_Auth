@@ -1,6 +1,7 @@
 import React from 'react';
-import * as ReactDOMClient from 'react-dom/client';
-import ReactDOM from 'react-dom';
+/* import * as ReactDOMClient from 'react-dom/client';
+import ReactDOM from 'react-dom'; */
+import { createRoot } from 'react-dom/client';
 import { createMemoryHistory, createBrowserHistory } from 'history'
 
 import App from './App'
@@ -33,10 +34,12 @@ const mount = (el, { location, onNavigate, defaultHistory }) => {
   /* root = root ? root : ReactDOMClient.createRoot(el);
   root.render(<App history={history} />); */
   // ReactDOMClient.createRoot(el).render(<App history={history} />)
-  ReactDOM.hydrate(
+  /* ReactDOM.hydrate(
     <App history={history} />,
     el
-  );
+  ); */
+  const root = createRoot(el);
+  root.render(<App history={history} />);
 }
 
 if (process.env.NODE_ENV === 'development') {
