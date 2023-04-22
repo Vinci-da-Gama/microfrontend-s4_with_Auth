@@ -22,8 +22,14 @@ cd marketing && yarn start
 ```sh
 cd auth && yarn start
 ```
+for auth, it is just local auth method, not real auth process.
+It is in container/src/App.js --> const [isSignedIn, setIsSignedIn] = useState(false); --> then keep pass it down...
 
 - Dashboard(VueJS) port 8083
 ```sh
 cd dashboard && yarn start
 ```
+
+local development issue:
+Route need refresh, webpack has overlay issue, createRoot update issue
+when has time, try solve these 3 issues.

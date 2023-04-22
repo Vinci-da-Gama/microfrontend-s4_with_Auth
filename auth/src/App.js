@@ -3,7 +3,7 @@ import { StylesProvider, createGenerateClassName } from '@material-ui/core/style
 
 import AuthRoutes from './routes'
 
-const App = ({ history }) => {
+const App = ({ onSignIn, history }) => {
   const generateClassName = createGenerateClassName({
     productionPrefix: 'auth-mini-app'
   })
@@ -14,7 +14,7 @@ const App = ({ history }) => {
 
   return (
     <StylesProvider generateClassName={generateClassName}>
-      <AuthRoutes history={history} />
+      <AuthRoutes onSignIn={onSignIn} history={history} />
     </StylesProvider>
   )
 }

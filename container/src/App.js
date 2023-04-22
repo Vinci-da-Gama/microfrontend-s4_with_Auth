@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useState, useEffect } from 'react'
 import { BrowserRouter as BsRouter } from 'react-router-dom'
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles'
 
@@ -8,6 +8,8 @@ import Progress from './compos/Progress'
 import ContainerRoutes from './routes'
 
 const App = () => {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
   const generateClassName = createGenerateClassName({
     productionPrefix: 'container-app'
   })
@@ -16,8 +18,11 @@ const App = () => {
     <BsRouter>
       <Suspense fallback={<Progress />}>
         <StylesProvider generateClassName={generateClassName}>
-          <Header />
-          <ContainerRoutes />
+          <Header
+            onSignOut={() => setIsSignedIn(false)}
+            isSignedIn={isSignedIn}
+          />
+          <ContainerRoutes onSignIn={() => setIsSignedIn(true)} />
         </StylesProvider>
       </Suspense>
     </BsRouter>

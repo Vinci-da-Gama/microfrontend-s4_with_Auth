@@ -15,15 +15,15 @@ import Signup from '../components/Signup'
   [ROUTE_PATHS.signup]: <Signup />,
 }).map(([path, element]) => ({ path, element })); */
 
-const AuthRoutes = ({ history }) => {
+const AuthRoutes = ({ onSignIn, history }) => {
   console.log('19 -- auth routes index.js react-router-dom: ', require('react-router-dom'))
 
   return (
     <CustomRouter history={history}>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path={ROUTE_PATHS.signin} element={<Signin />} />
-          <Route path={ROUTE_PATHS.signup} element={<Signup />} />
+          <Route path={ROUTE_PATHS.signin} element={<Signin onSignIn={onSignIn} />} />
+          <Route path={ROUTE_PATHS.signup} element={<Signup onSignIn={onSignIn} />} />
         </Routes>
       </Suspense>
     </CustomRouter>

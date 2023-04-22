@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { mount } from 'auth/AuthMiniApp'
 
-const AuthMiniApp = ({browserHistory}) => {
+const AuthMiniApp = ({onSignIn, browserHistory}) => {
   const authMa = useRef(null)
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,7 +14,8 @@ const AuthMiniApp = ({browserHistory}) => {
       onNavigate: ({ pathname }) => {
         navigate(pathname);
         // browserHistory.push(pathname);
-      }
+      },
+      onSignIn
     });
   }, [location, navigate]);
 
