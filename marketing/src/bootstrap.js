@@ -9,9 +9,9 @@ import App from './App'
 // let root = null;
 
 const mount = (el, { location, onNavigate, defaultHistory }) => {
-  console.log('10 -- marketing bootstrap location', location)
-  console.log('11 -- marketing bootstrap onNavigate', onNavigate)
-  console.log('12 -- marketing bootstrap defaultHistory', defaultHistory)
+  console.log('12 -- marketing bootstrap location', location)
+  console.log('13 -- marketing bootstrap onNavigate', onNavigate)
+  console.log('14 -- marketing bootstrap defaultHistory', defaultHistory)
 
   /* if (!el) {
     root = null;

@@ -1,13 +1,10 @@
 import React from 'react'
 import { BrowserRouter as BsRouter } from 'react-router-dom'
-// import { createBrowserHistory } from 'history'
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles'
 
 // import MarketingMiniApp from './miniapp-compos/MarketingMiniApp'
 import Header from './compos/Header'
 import ContainerRoutes from './routes'
-
-// const history = createBrowserHistory();
 
 const App = () => {
   const generateClassName = createGenerateClassName({

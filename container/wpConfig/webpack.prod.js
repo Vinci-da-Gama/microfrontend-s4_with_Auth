@@ -11,11 +11,13 @@ const domain = process.env.PRODUCTION_DOMAIN
 const {
   containerFedName,
   marketingFedName,
+  authFedName,
   remoteEntry,
   publicIndex,
   productionMode,
   containerAppPublicPath,
-  marketingMiniAppPublicPath
+  marketingMiniAppPublicPath,
+  authMiniAppPublicPath
 } = wpkConstants
 
 const prodConfig = {
@@ -23,7 +25,8 @@ const prodConfig = {
     new ModuleFederationPlugin({
       name: containerFedName,
       remotes: {
-        [marketingFedName]: `${marketingFedName}@${domain}/${marketingMiniAppPublicPath}/${remoteEntry}`
+        [marketingFedName]: `${marketingFedName}@${domain}/${marketingMiniAppPublicPath}/${remoteEntry}`,
+        [authFedName]: `${authFedName}@${domain}/${authMiniAppPublicPath}/${remoteEntry}`
       },
       shared: {
         ...packageJsonDeps,

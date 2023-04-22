@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-/* authFedName: 'auth',
-authExposesKey: './AuthMiniApp', */
 import { mount } from 'auth/AuthMiniApp'
 
 const AuthMiniApp = ({browserHistory}) => {
