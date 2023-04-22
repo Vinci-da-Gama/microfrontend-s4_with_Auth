@@ -1,13 +1,13 @@
-import React, { lazy, Suspense } from 'react'
-import { BrowserRouter as BsRouter, Routes, Route } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
+import React from 'react'
+import { BrowserRouter as BsRouter } from 'react-router-dom'
+// import { createBrowserHistory } from 'history'
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles'
 
 // import MarketingMiniApp from './miniapp-compos/MarketingMiniApp'
-const MarketingMiniApp = lazy(() => import("./miniapp-compos/MarketingMiniApp"));
 import Header from './compos/Header'
+import ContainerRoutes from './routes'
 
-const history = createBrowserHistory();
+// const history = createBrowserHistory();
 
 const App = () => {
   const generateClassName = createGenerateClassName({
@@ -18,9 +18,7 @@ const App = () => {
     <BsRouter>
       <StylesProvider generateClassName={generateClassName}>
         <Header />
-        <Routes>
-          <Route path={'/*'} element={<MarketingMiniApp />} />
-        </Routes>
+        <ContainerRoutes />
       </StylesProvider>
     </BsRouter>
   )

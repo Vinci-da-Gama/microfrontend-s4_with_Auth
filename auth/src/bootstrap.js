@@ -7,9 +7,9 @@ import App from './App'
 // let root = null;
 
 const mount = (el, { location, onNavigate, defaultHistory }) => {
-  console.log('10 -- marketing bootstrap location', location)
-  console.log('11 -- marketing bootstrap onNavigate', onNavigate)
-  console.log('12 -- marketing bootstrap defaultHistory', defaultHistory)
+  console.log('10 -- auth bootstrap location', location)
+  console.log('11 -- auth bootstrap onNavigate', onNavigate)
+  console.log('12 -- auth bootstrap defaultHistory', defaultHistory)
 
   /* if (!el) {
     root = null;
@@ -31,9 +31,9 @@ const mount = (el, { location, onNavigate, defaultHistory }) => {
   // Although it fixes the warning, but cause page no change back to home error, no fully successful.
   /* root = root ? root : ReactDOMClient.createRoot(el);
   root.render(<App history={history} />); */
-  // ReactDOMClient.createRoot(el).render(<App history={history} />)
-  const root = createRoot(el);
-  root.render(<App history={history} />);
+  ReactDOMClient.createRoot(el).render(<App history={history} />)
+  /* const root = createRoot(el);
+  root.render(<App history={history} />); */
 }
 
 if (process.env.NODE_ENV === 'development') {

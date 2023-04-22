@@ -4,7 +4,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 
 const commWpConfig = require('../../sharedModules/webpack.common')
 const wpkConstants = require('../../sharedModules/wpkConstants')
-const packageJson = require('../package.json');
+const packageJsonDeps = require('../package.json').dependencies;
 
 const devConfig = {
   plugins: [
@@ -14,7 +14,17 @@ const devConfig = {
       exposes: {
         [wpkConstants.marketingExposesKey]: wpkConstants.srcBoot
       },
-      shared: packageJson.dependencies
+      shared: {
+        ...packageJsonDeps,
+        react: {
+          singleton: true,
+          requiredVersion: packageJsonDeps.react,
+        },
+        "react-dom": {
+          singleton: true,
+          requiredVersion: packageJsonDeps["react-dom"],
+        }
+      }
     }),
     new HtmlWebpackPlugin({
       template: wpkConstants.publicIndex
