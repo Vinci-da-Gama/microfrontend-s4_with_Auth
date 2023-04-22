@@ -1,28 +1,32 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+/* authFedName: 'auth',
+authExposesKey: './AuthMiniApp', */
 import { mount } from 'auth/AuthMiniApp'
 
-const AuthMiniApp = () => {
+const AuthMiniApp = ({browserHistory}) => {
   const authMa = useRef(null)
   const location = useLocation();
   const navigate = useNavigate();
 
-  /* const mountAuthMa = useCallback(() => {
+  const mountAuthMa = useCallback(() => {
     mount(authMa.current, {
       location,
       onNavigate: ({ pathname }) => {
         navigate(pathname);
+        // browserHistory.push(pathname);
       }
     });
   }, [location, navigate]);
 
   useEffect(() => {
     mountAuthMa();
-  }, [mountAuthMa]); */
 
-  // createRoot(authMa.current).render(<div />);
-  // Render the component using createRoot instead of ReactDOM.render()
+    return () => {
+      mount(authMa.current, { location, onNavigate: () => null });
+    };
+  }, [mountAuthMa]);
 
   return <div ref={authMa} />
 }

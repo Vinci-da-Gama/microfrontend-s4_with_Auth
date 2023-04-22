@@ -10,18 +10,20 @@ const {
   port8080,
   containerFedName,
   marketingFedName,
+  authFedName,
   port8081,
+  port8082,
   remoteEntry,
   publicIndex
 } = wpkConstants
-
 
 const devConfig = {
   plugins: [
     new ModuleFederationPlugin({
       name: containerFedName,
       remotes: {
-        [marketingFedName]: `${marketingFedName}@http://localhost:${port8081}/${remoteEntry}`
+        [marketingFedName]: `${marketingFedName}@http://localhost:${port8081}/${remoteEntry}`,
+        [authFedName]: `${authFedName}@http://localhost:${port8082}/${remoteEntry}`,
       },
       shared: {
         ...packageJsonDeps,
