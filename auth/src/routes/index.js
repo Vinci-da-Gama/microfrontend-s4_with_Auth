@@ -16,7 +16,7 @@ import Signup from '../components/Signup'
 }).map(([path, element]) => ({ path, element })); */
 
 const AuthRoutes = ({ history }) => {
-  console.log('20 -- marketing routes index.js react-router-dom: ', require('react-router-dom'))
+  console.log('19 -- auth routes index.js react-router-dom: ', require('react-router-dom'))
 
   return (
     <CustomRouter history={history}>

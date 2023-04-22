@@ -18,11 +18,11 @@ const devConfig = {
         ...packageJsonDeps,
         react: {
           singleton: true,
-          requiredVersion: packageJsonDeps.react,
+          requiredVersion: packageJsonDeps.react
         },
         "react-dom": {
           singleton: true,
-          requiredVersion: packageJsonDeps["react-dom"],
+          requiredVersion: packageJsonDeps["react-dom"]
         }
       }
     }),
