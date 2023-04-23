@@ -11,8 +11,10 @@ const {
   containerFedName,
   marketingFedName,
   authFedName,
+  dashboardFedName,
   port8081,
   port8082,
+  port8083,
   remoteEntry,
   publicIndex
 } = wpkConstants
@@ -24,6 +26,7 @@ const devConfig = {
       remotes: {
         [marketingFedName]: `${marketingFedName}@http://localhost:${port8081}/${remoteEntry}`,
         [authFedName]: `${authFedName}@http://localhost:${port8082}/${remoteEntry}`,
+        [dashboardFedName]: `${dashboardFedName}@http://localhost:${port8083}/${remoteEntry}`
       },
       shared: {
         ...packageJsonDeps,

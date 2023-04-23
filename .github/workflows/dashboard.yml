@@ -1,0 +1,52 @@
+name: deploy-dashboard
+
+env:
+  S3_DASHBOARD_PATH: "dashboard/latest"
+  AWS_REGION: ap-southeast-2
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "dashboard/**"
+
+defaults:
+  run:
+    working-directory: dashboard
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.5.1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2.5.2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn
+      - name: Build
+        run: yarn build
+
+      - name: shinyinc start aws-cli
+        uses: shinyinc/action-aws-cli@v1.2
+      - name: Upload production to s3 bucket
+        run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/${{ env.S3_DASHBOARD_PATH }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
+
+      - name: Sync clould front for invalidation (index.html)
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/${{ env.S3_DASHBOARD_PATH }}/remoteEntry.js"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}

@@ -12,12 +12,14 @@ const {
   containerFedName,
   marketingFedName,
   authFedName,
+  dashboardFedName,
   remoteEntry,
   publicIndex,
   productionMode,
   containerAppPublicPath,
   marketingMiniAppPublicPath,
-  authMiniAppPublicPath
+  authMiniAppPublicPath,
+  dashboardMiniAppPublicPath,
 } = wpkConstants
 
 const prodConfig = {
@@ -26,7 +28,8 @@ const prodConfig = {
       name: containerFedName,
       remotes: {
         [marketingFedName]: `${marketingFedName}@${domain}/${marketingMiniAppPublicPath}/${remoteEntry}`,
-        [authFedName]: `${authFedName}@${domain}/${authMiniAppPublicPath}/${remoteEntry}`
+        [authFedName]: `${authFedName}@${domain}/${authMiniAppPublicPath}/${remoteEntry}`,
+        [dashboardFedName]: `${dashboardFedName}@${domain}/${dashboardMiniAppPublicPath}/${remoteEntry}`
       },
       shared: {
         ...packageJsonDeps,
