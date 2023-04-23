@@ -28,6 +28,4 @@ const devConfig = {
   ]
 }
 
-console.log('40 -- dev merged: ', merge(commWpConfig(wpkConstants.port8083), devConfig))
-
 module.exports = merge(commWpConfig(wpkConstants.port8083), devConfig)
