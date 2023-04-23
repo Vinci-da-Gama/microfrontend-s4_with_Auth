@@ -38,3 +38,5 @@ when has time, try solve these 3 issues.
 In production has errror --> React.js uncaught error minified react error #299
 
 del secrets when finished.
+
+deploy dashboard to s3 fail, it may due to upload it in the late night, the AWS s3 server is not working correctly? May be u can try later...
