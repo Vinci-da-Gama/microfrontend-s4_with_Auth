@@ -9,6 +9,11 @@ import ContainerRoutes from './routes'
 
 const App = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
+  useEffect(() => {
+    if (isSignedIn) {
+      history.push('/dashboard');
+    }
+  }, [isSignedIn]);
 
   const generateClassName = createGenerateClassName({
     productionPrefix: 'container-app'
@@ -22,7 +27,7 @@ const App = () => {
             onSignOut={() => setIsSignedIn(false)}
             isSignedIn={isSignedIn}
           />
-          <ContainerRoutes onSignIn={() => setIsSignedIn(true)} />
+          <ContainerRoutes isSignedIn={isSignedIn} onSignIn={() => setIsSignedIn(true)} />
         </StylesProvider>
       </Suspense>
     </BsRouter>
