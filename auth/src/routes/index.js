@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom'
 import ROUTE_PATHS from '../constants/routePaths'
 import CustomRouter from './CustomRouter'
 // import useCustRoutes from './useCustRoutes'
-// if use lazy load, first time will be fail, when has time, keep debugging...
 /* const Signin = lazy(() => import("../components/Signin"));
 const Signup = lazy(() => import("../components/Signup")); */
 import Signin from '../components/Signin'
@@ -16,7 +15,7 @@ import Signup from '../components/Signup'
 }).map(([path, element]) => ({ path, element })); */
 
 const AuthRoutes = ({ onSignIn, history }) => {
-  console.log('19 -- auth routes index.js react-router-dom: ', require('react-router-dom'))
+  console.log('18 -- auth routes index.js react-router-dom: ', require('react-router-dom'))
 
   return (
     <CustomRouter history={history}>

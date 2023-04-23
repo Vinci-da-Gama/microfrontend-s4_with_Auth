@@ -4,17 +4,7 @@ import { createMemoryHistory, createBrowserHistory } from 'history'
 
 import App from './App'
 
-// let root = null;
-
 const mount = (el, { onSignIn, location, onNavigate, defaultHistory }) => {
-  console.log('10 -- auth bootstrap location', location)
-  console.log('11 -- auth bootstrap onNavigate', onNavigate)
-  console.log('12 -- auth bootstrap defaultHistory', defaultHistory)
-
-  /* if (!el) {
-    root = null;
-    return;
-  } */
 
   const history = location
     ? createMemoryHistory({
