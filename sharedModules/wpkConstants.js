@@ -11,10 +11,13 @@ const wpkConstants = Object.freeze({
   marketingExposesKey: './MarketingMiniApp',
   authFedName: 'auth',
   authExposesKey: './AuthMiniApp',
+  dashboardFedName: 'dashboard',
+  dashboardExposesKey: './DashboardMiniApp',
   productionMode: 'production',
   containerAppPublicPath: '/container/latest/',
   marketingMiniAppPublicPath: 'marketing/latest',
-  authMiniAppPublicPath: 'auth/latest'
+  authMiniAppPublicPath: 'auth/latest',
+  dashboardMiniAppPublicPath: 'dashboard/latest'
 });
 
 module.exports = wpkConstants;

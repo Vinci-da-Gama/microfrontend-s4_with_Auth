@@ -7,11 +7,11 @@ const MarketingMiniApp = lazy(() => import("../miniapp-compos/MarketingMiniApp")
 
 // const history = createBrowserHistory();
 
-const ContainerRoutes = ({onSignIn}) => (
-  <Routes>
+const ContainerRoutes = ({ onSignIn }) => {
+  return (<Routes>
     <Route path={'/auth/*'} element={<AuthMiniApp onSignIn={onSignIn} />} />
     <Route path={'/*'} element={<MarketingMiniApp />} />
   </Routes>
-)
+)}
 
 export default ContainerRoutes

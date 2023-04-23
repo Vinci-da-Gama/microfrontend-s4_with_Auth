@@ -33,3 +33,8 @@ cd dashboard && yarn start
 local development issue:
 Route need refresh, webpack has overlay issue, createRoot update issue
 when has time, try solve these 3 issues.
+
+
+In production has errror --> React.js uncaught error minified react error #299
+
+del secrets when finished.

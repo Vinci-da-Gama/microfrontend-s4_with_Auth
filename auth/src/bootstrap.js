@@ -1,5 +1,6 @@
 import React from 'react';
-import * as ReactDOMClient from 'react-dom/client';
+// import * as ReactDOMClient from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { createMemoryHistory, createBrowserHistory } from 'history'
 
 import App from './App'
@@ -22,7 +23,7 @@ const mount = (el, { onSignIn, location, onNavigate, defaultHistory }) => {
   /* root = root ? root : ReactDOMClient.createRoot(el);
   root.render(<App history={history} />); */
   // ReactDOMClient.createRoot(el).render(<App onSignIn={onSignIn} history={history} />)
-  const root = ReactDOMClient.createRoot(el);
+  const root = createRoot(el);
   root.render(<App onSignIn={onSignIn} history={history} />);
 }
 
