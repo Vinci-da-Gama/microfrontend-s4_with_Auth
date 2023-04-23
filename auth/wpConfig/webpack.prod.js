@@ -13,7 +13,17 @@ const prodConfig = {
       exposes: {
         [wpkConstants.authExposesKey]: wpkConstants.srcBoot
       },
-      shared: packageJsonDeps
+      shared: {
+        ...packageJsonDeps,
+        react: {
+          singleton: true,
+          requiredVersion: packageJsonDeps.react
+        },
+        "react-dom": {
+          singleton: true,
+          requiredVersion: packageJsonDeps["react-dom"]
+        }
+      }
     })
     // no need HtmlWebpackPlugin, because all child html will goes into container
   ]
